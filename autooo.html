@@ -1,0 +1,23 @@
+javascript:(function() {
+    // Auto-fill text fields
+    document.querySelectorAll('input[type="text"], input[type="email"], input[type="password"], input[type="tel"]').forEach(input => {
+        input.value = "AutoFilled";
+    });
+
+    // Auto-select specific dropdown options
+    document.querySelectorAll('select').forEach(select => {
+        if (select.name.includes("Work Type") || select.id.includes("Work Type")) {
+            select.value = "Normal QC"; // Set Work Type to "Normal QC"
+        }
+        if (select.name.includes("Locale") || select.id.includes("Locale")) {
+            select.value = "us"; // Set Locale to "US"
+        }
+    });
+
+    // Auto-check radio buttons and checkboxes
+    document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+        input.checked = true;
+    });
+
+    console.log("Form Auto-Filled!");
+})();
