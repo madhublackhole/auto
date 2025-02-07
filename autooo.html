@@ -4,20 +4,20 @@ javascript:(function() {
         input.value = "AutoFilled";
     });
 
-    // Auto-select specific dropdown options
-    document.querySelectorAll('select').forEach(select => {
-        if (select.name.includes("Work Type") || select.id.includes("Work Type")) {
-            select.value = "Normal QC"; // Set Work Type to "Normal QC"
+    // Auto-select radio buttons for Work Type
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        if (radio.value.toLowerCase() === "normal qc") {
+            radio.checked = true;
         }
-        if (select.name.includes("Locale") || select.id.includes("Locale")) {
-            select.value = "us"; // Set Locale to "US"
+        if (radio.value.toLowerCase() === "us") {
+            radio.checked = true;
         }
     });
 
-    // Auto-check radio buttons and checkboxes
-    document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+    // Auto-check all checkboxes
+    document.querySelectorAll('input[type="checkbox"]').forEach(input => {
         input.checked = true;
     });
 
-    console.log("Form Auto-Filled!");
+    console.log("Form Auto-Filled: Work Type -> Normal QC, Locale -> US");
 })();
